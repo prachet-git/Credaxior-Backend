@@ -14,13 +14,13 @@ public class CorsConfig {
 
         config.setAllowCredentials(true);
 
-        // ✅ YOUR FRONTEND URL
+        
         config.addAllowedOrigin("http://localhost:5173");
 
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
-        // 🔥 IMPORTANT FOR JWT
+        
         config.addExposedHeader("Authorization");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
