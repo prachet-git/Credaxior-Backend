@@ -4,24 +4,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.*;
 
+import java.util.List;
+
 @Configuration
 public class CorsConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
-
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
 
-        
-        config.addAllowedOrigin("https://credaxior-backend.onrender.com");
+        config.setAllowedOrigins(List.of(
+            "http://localhost:5173",
+            "https://credaxior.vercel.app"
+        ));
 
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-
-        
-        config.addExposedHeader("Authorization");
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setExposedHeaders(List.of("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
