@@ -15,7 +15,7 @@ public class CorsConfig {
         config.setAllowCredentials(true);
 
         
-        config.addAllowedOrigin("http://localhost:5173");
+        config.addAllowedOrigin("https://credaxior-backend.onrender.com");
 
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
